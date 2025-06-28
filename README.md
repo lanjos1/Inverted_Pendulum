@@ -1,6 +1,6 @@
 # **Introdução**
 
-O projeto apresentado consiste na implementação de um **pêndulo invertido**, desenvolvido como parte das atividades da disciplina **[[Modelagem e Controle de Sistemas II]]**. A estrutura base foi adaptada a partir de uma impressora comum, aproveitando seu motor embutido de **12V** para a movimentação do trilho. Além da impressora, foram utilizados os seguintes componentes:
+O projeto apresentado consiste na implementação de um **pêndulo invertido**, desenvolvido como parte das atividades da disciplina **Modelagem e Controle de Sistemas II**. A estrutura base foi adaptada a partir de uma impressora comum, aproveitando seu motor embutido de **12V** para a movimentação do trilho. Além da impressora, foram utilizados os seguintes componentes:
 
 | Componente                  | Descrição                                     | Datasheet                                                                                                                                                                                                           |
 | --------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
