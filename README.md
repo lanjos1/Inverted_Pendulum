@@ -2,21 +2,22 @@
 
 O projeto apresentado consiste na implementação de um **pêndulo invertido**, desenvolvido como parte das atividades da disciplina **Modelagem e Controle de Sistemas II**. A estrutura base foi adaptada a partir de uma impressora comum, aproveitando seu motor embutido de **12V** para a movimentação do trilho. Além da impressora, foram utilizados os seguintes componentes:
 
-| Componente                  | Descrição                                     | Datasheet                                                                                                                                                                                                           |
-| --------------------------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ESP32                       | Microcontrolador                              | [📄](https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf)                                                                                                                            |
-| Sensor de distância VL53L0X | Sensor de distância (posição do carrinho)     | [📄](https://www.alldatasheet.com/view.jsp?Searchword=Vl53l0x%20Datasheet&gad_source=1&gad_campaignid=1432848463&gclid=CjwKCAjw3MXBBhAzEiwA0vLXQTzKcui1WLHXg-_vCA1itTCsSSLOXApv7Bhh_TEmkd0yjqiV-MBufRoCYBwQAvD_BwE) |
-| Sensor inercial MPU-6050    | Giroscópio + Acelerômetro (ângulo do pêndulo) | [📄](https://www.alldatasheet.com/view.jsp?Searchword=Mpu-6050%20datasheet&gad_source=1&gad_campaignid=163458844&gclid=CjwKCAjw3MXBBhAzEiwA0vLXQTH4CT-uLhW6-a2hkWFem5TBKgU2mwys2hFuboTLkVvxGFpHKglb2RoCXcMQAvD_BwE) |
-| Driver de motor L298N       | Driver para motor DC                          | [📄](https://www.alldatasheet.com/datasheet-pdf/pdf/22440/STMICROELECTRONICS/L298N.html)                                                                                                                            |
-| Fonte de alimentação 12V    | Alimentação do motor                          |                                                                                                                                                                                                                     |
+| Componente                                      | Descrição                                 | Datasheet                                                                                                                                                                                                           |
+| ----------------------------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ESP32                                           | Microcontrolador                          | [📄](https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf)                                                                                                                            |
+| 2 Sensores de distância VL53L0X                 | Sensor de distância (posição do carrinho) | [📄](https://www.alldatasheet.com/view.jsp?Searchword=Vl53l0x%20Datasheet&gad_source=1&gad_campaignid=1432848463&gclid=CjwKCAjw3MXBBhAzEiwA0vLXQTzKcui1WLHXg-_vCA1itTCsSSLOXApv7Bhh_TEmkd0yjqiV-MBufRoCYBwQAvD_BwE) |
+| Encoder Incremental 360 AB PNP (F56)            | Medição do ângulo                         | [📄](https://www.alldatasheet.com/view.jsp?Searchword=Mpu-6050%20datasheet&gad_source=1&gad_campaignid=163458844&gclid=CjwKCAjw3MXBBhAzEiwA0vLXQTH4CT-uLhW6-a2hkWFem5TBKgU2mwys2hFuboTLkVvxGFpHKglb2RoCXcMQAvD_BwE) |
+| Driver de motor BTS7960                         | Driver para motor DC                      | [📄](https://www.alldatasheet.com/view.jsp?Searchword=Bts7960%20datasheet&gad_source=1&gad_campaignid=145732807&gclid=CjwKCAjwprjDBhBTEiwA1m1d0hARd2jc2kv0Bl5XEZjIOlE777TRUl6Reo8d-SP2JrrT4wIWn1QZaRoC7yUQAvD_BwE)  |
+| Fonte 24V Bivolt - 10A - 240W                   | Alimentação do motor                      |                                                                                                                                                                                                                     |
+| Motor do Carro de Impressão da Impressora Epson | Motor 24V                                 |                                                                                                                                                                                                                     |
 
 A combinação desses componentes permite a estabilização do pêndulo invertido por meio de estratégias de controle em tempo real, explorando conceitos teóricos aplicados na disciplina que serão apresentados a seguir.
 # **Objetivos do Projeto**
 
-O principal objetivo deste projeto é **estabilizar um pêndulo invertido dentro de uma região linearizada**, mantendo sua oscilação dentro de um limite de **±10°** em relação ao ponto de equilíbrio vertical. Para isso, serão utilizadas **técnicas de identificação de sistemas**, especificamente modelos **ARX** (Auto Regressive with eXogenous input) e **ARMAX** (Auto Regressive Moving Average with eXogenous input), para:
+O principal objetivo deste projeto é **estabilizar um pêndulo invertido dentro de uma região linearizada**, mantendo sua oscilação dentro de um limite de **±10°** em relação ao ponto de equilíbrio vertical. Para isso, serão utilizadas **técnicas de identificação de sistemas**, especificamente modelos **ARX** (Auto Regressive with eXogenous input), **ARMAX** (Auto Regressive Moving Average with eXogenous input), Alocação de polos e LQR (Regulador Linear Quadrático) para:
 
-1. **Identificar dinamicamente o sistema** a partir de dados experimentais, obtendo um modelo matemático que represente adequadamente o comportamento do pêndulo.
-2. **Projetar uma estratégia de controle** (como **PID**, **realimentação de estados** ou **controle preditivo**) com base no modelo estimado, garantindo estabilidade dentro da faixa linear.
+1. **Identificar dinamicamente o sistema** a partir de dados experimentais (ARX / ARMAX), ou obter um modelo matemático que represente adequadamente o comportamento do pêndulo (Alocação de polos / LQR).
+2. **Projetar uma estratégia de controle** com base no modelo estimado, garantindo estabilidade dentro da faixa linear.
 3. **Validar experimentalmente** o desempenho do controlador, analisando:
 	- Tempo de estabilização.
 	- Robustez a perturbações externas.
@@ -115,6 +116,16 @@ void loop() {
   delay(100); // Intervalo entre leituras
 }
 ```
+**Conexões**
+
+| VL53L0X | ESP32                                   |
+| ------- | --------------------------------------- |
+| VCC     | 3.3V                                    |
+| GND     | GND                                     |
+| SDA     | GPIO 21                                 |
+| SCL     | GPIO 22                                 |
+| XSHUT   | GPIO 26 / GPIO 27 (Sensor 1 / Sensor 2) |
+
 ### Ponte H
 ``` cpp
 #include <Arduino.h>
@@ -200,6 +211,17 @@ void loop() {
   }
 }
 ```
+**Conexões**
+
+| BTS7960 |  ESP32  |
+| ------- | :-----: |
+| VCC     |  3.3V   |
+| GND     |   GND   |
+| RPWM    | GPIO 23 |
+| LPWM    | GPIO 18 |
+| R_EN    | GPIO 19 |
+| L_EN    | GPIO 4  |
+
 ### Encoder
 ``` cpp
 // Pinos do encoder
@@ -272,9 +294,9 @@ void loop() {
 ```
 **Conexões**
 
-| Encoder PNP (NPN) | ESP32                                   |
-| ----------------- | --------------------------------------- |
-| Vermelho (Vcc +)  | 5V (ou fonte externa 5-24V)             |
-| Preto (V0/GND)    | GND                                     |
-| Verde (Fase A)    | GPIO34 (e pull-down 10kΩ se necessário) |
-| Branco (Fase B)   | GPIO35 (e pull-down 10kΩ se necessário) |
+| Encoder PNP      |  ESP32  |
+| ---------------- | :-----: |
+| Vermelho (Vcc +) |   5V    |
+| Preto (V0/GND)   |   GND   |
+| Verde (Fase A)   | GPIO 34 |
+| Branco (Fase B)  | GPIO 35 |
