@@ -1,6 +1,6 @@
 # **Introdução**
 
-O projeto apresentado consiste na implementação de um **pêndulo invertido**, desenvolvido como parte das atividades da disciplina **Modelagem e Controle de Sistemas II**. A estrutura base foi adaptada a partir de uma impressora comum, aproveitando seu motor embutido de **12V** para a movimentação do trilho. Além da impressora, foram utilizados os seguintes componentes:
+O projeto apresentado consiste na implementação de um **pêndulo invertido**, desenvolvido como parte das atividades da disciplina **Modelagem e Controle de Sistemas II**. A estrutura base foi adaptada a partir de uma impressora comum, aproveitando seu motor embutido de **24V** para a movimentação do trilho. Além da impressora, foram utilizados os seguintes componentes:
 
 | Componente                                      | Descrição                                 | Datasheet                                                                                                                                                                                                           |
 | ----------------------------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -25,6 +25,7 @@ O principal objetivo deste projeto é **estabilizar um pêndulo invertido dentr
 4. **Comparar a eficiência** dos modelos **ARX** e **ARMAX** na representação do sistema.
 
 # **Código**
+## Esp32
 ### Sensores de distância
 ``` cpp
 #include <Arduino.h>
@@ -300,3 +301,13 @@ void loop() {
 | Preto (V0/GND)   |   GND   |
 | Verde (Fase A)   | GPIO 34 |
 | Branco (Fase B)  | GPIO 35 |
+
+----
+
+## Controle do Pendulo
+A partir dos códigos abordados anteriormente criamos um código completo de captura de variáveis do modelo e utilizando de referencia o modelo matemático do [Control Tutorials for MATLAB & SIMULINK](https://ctms.engin.umich.edu/CTMS/index.php?example=InvertedPendulum&section=SystemModeling) e dos parâmetros LQR do repositório no GitHub que usamos de referencia e a partir dessas variáveis criamos o [[Controle_Pendulo.ino]] e conferíamos os resultados através do [[coletor_serial.py]].
+
+# Referências
+KISHAN, I. **Inverted Pendulum**. GitHub, [S. l.], 2025. Disponível em: [https://github.com/imkishan96/Inverted_Pendulum/tree/master](https://github.com/imkishan96/Inverted_Pendulum/tree/master). Acesso em: 3 jun. 2025.
+
+UNIVERSITY OF MICHIGAN. **Control Tutorials for MATLAB and Simulink: Inverted Pendulum - System Modeling**. [S. l.], 2025. Disponível em: [http://ctms.engin.umich.edu/CTMS/index.php?example=InvertedPendulum§ion=SystemModeling](http://ctms.engin.umich.edu/CTMS/index.php?example=InvertedPendulum%C2%A7ion=SystemModeling). Acesso em: 3 jun. 2025.
