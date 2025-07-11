@@ -305,7 +305,7 @@ void loop() {
 ----
 
 ## Controle do Pendulo
-A partir dos códigos abordados anteriormente criamos um código completo de captura de variáveis do modelo e utilizando de referencia o modelo matemático do [Control Tutorials for MATLAB & SIMULINK](https://ctms.engin.umich.edu/CTMS/index.php?example=InvertedPendulum&section=SystemModeling) e dos parâmetros LQR do repositório no GitHub que usamos de referencia e a partir dessas variáveis criamos o [Controle_Pendulo.ino](Controle_Pendulo.ino) e conferíamos os resultados através do [coletor_serial.py](coletor_serial.py).
+A partir dos códigos abordados anteriormente criamos um código completo de captura de variáveis do modelo e utilizando de referencia o modelo matemático do [Control Tutorials for MATLAB & SIMULINK](https://ctms.engin.umich.edu/CTMS/index.php?example=InvertedPendulum&section=SystemModeling) e dos parâmetros LQR do repositório no GitHub que usamos de referencia e a partir dessas variáveis criamos o [Controle Pendulo](Controle_Pendulo.ino) e conferíamos os resultados através do [coletor serial](coletor_serial.py).
 
 # Referências
 KISHAN, I. **Inverted Pendulum**. GitHub, [S. l.], 2025. Disponível em: [https://github.com/imkishan96/Inverted_Pendulum/tree/master](https://github.com/imkishan96/Inverted_Pendulum/tree/master). Acesso em: 3 jun. 2025.
