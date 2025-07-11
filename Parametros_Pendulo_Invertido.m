@@ -15,7 +15,7 @@ Current_saturation=2000; % 1000 mAmp
 N_to_mAmp = 260;
 Theta = 0;  % Pendulum angle from Vertical down position
 
-Linearized Continious open-loop State-space System
+% Linearized Continious open-loop State-space System
 p = I*(M+m) + M*m*l^2; %denominator for the state space
 
 A = [   0       1               0           0;
@@ -40,7 +40,7 @@ outputs = {'x'; 'phi'};
 sys = ss(A,B,C,D,'statename',states,'inputname',inputs,'outputname',outputs);
 %step(sys)
 
-Linearized Continious closed-loop State-space System
+% Linearized Continious closed-loop State-space System
 Q = C'*C;
 Q(1,1) = 5000;  % working 5000  position
 Q(2,2) = 0;
@@ -60,7 +60,7 @@ Nc = 1/dcgain(sys_cl(1));
 sys_cl = ss(Ac,Bc*Nc,Cc,Dc,'statename',states,'inputname',inputs,'outputname',outputs);
 %figure; step(sys_cl)
 
-Linearized Continious closed-loop Observer based State-space System
+% Linearized Continious closed-loop Observer based State-space System
 %P = [-15 -16 -17 -14];
 P = [-35 -36 -37 -38];
 L = place(A',C',P)';
@@ -79,7 +79,7 @@ outputs = {'x'; 'phi'};
 sys_est_cl = ss(Ace,Bce,Cce,Dce,'statename',states,'inputname',inputs,'outputname',outputs);
 %step(sys_est_cl)
 
-Linearized discreat closed-loop State-space System
+% Linearized discreat closed-loop State-space System
 sys_d = c2d(sys,Ts,'zoh');
 
 Ad = sys_d.a;
@@ -102,7 +102,7 @@ Ndc = 1/dcgain(sys_d_cl(1));
 sys_d_cl = ss(Adc,Bdc*Ndc,Cdc,Ddc,Ts,'statename',states,'inputname',inputs,'outputname',outputs);
 %step(sys_d_cl)
 
-Linearized discreat closed-loop Observer State-space System
+% Linearized discreat closed-loop Observer State-space System
 Pd = [ pole(sys_d_cl)/3]
 Ld = place(Ad',Cd',Pd)';
 
