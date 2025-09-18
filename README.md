@@ -28,6 +28,22 @@ O principal objetivo deste projeto é **estabilizar um pêndulo invertido dentr
 ## Controle do Pendulo
 A partir dos códigos de testes dos sensores [Ponte H BTS7960](Manual/Teste_Sensores/Ponte_H_BTS7960.ino), [Sensor do Angulo Encoder](Manual/Teste_Sensores/Sensor_do_Angulo_Encoder.ino) e [Sensores de distancia VL53L0X](Manual/Teste_Sensores/Sensores_de_distancia_VL53L0X.ino) criamos um código completo de captura de variáveis do modelo e utilizando de referencia o modelo matemático do [Control Tutorials for MATLAB & SIMULINK](https://ctms.engin.umich.edu/CTMS/index.php?example=InvertedPendulum&section=SystemModeling) e dos parâmetros LQR do repositório no GitHub que usamos de referencia e a partir dessas variáveis criamos o [Controle Pendulo](Manual/Controle_Pendulo.ino) e conferíamos os resultados através do [coletor serial](Manual/coletor_serial.py).
 
+---
+
+### Imagens e Vídeo do Projeto
+
+![Pêndulo Invertido](Manual/media/Pendulo.png)
+
+![Imagem do Movimento](Manual/media/pendulo_movimento.png)
+
+<br/>
+
+<video src="Manual/media/pendulo_movimento.mp4" controls width="700">
+  Seu navegador não suporta o elemento de vídeo.
+</video>
+
+---
+
 # Referências
 KISHAN, I. **Inverted Pendulum**. GitHub, [S. l.], 2025. Disponível em: [https://github.com/imkishan96/Inverted_Pendulum/tree/master](https://github.com/imkishan96/Inverted_Pendulum/tree/master). Acesso em: 3 jun. 2025.
 
