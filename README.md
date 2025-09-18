@@ -38,10 +38,6 @@ A partir dos códigos de testes dos sensores [Ponte H BTS7960](Manual/Teste_Sens
 
 <br/>
 
-<video src="https://raw.githubusercontent.com/lanjos1/Inverted_Pendulum/main/Manual/midia/pendulo_movimento.mp4" controls width="700">
-  Seu navegador não suporta o elemento de vídeo.
-</video>
-
 ---
 
 # Referências
