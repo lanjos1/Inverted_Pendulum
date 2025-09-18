@@ -32,3 +32,18 @@ A partir dos códigos de testes dos sensores [Ponte H BTS7960](Manual/Teste_Sens
 KISHAN, I. **Inverted Pendulum**. GitHub, [S. l.], 2025. Disponível em: [https://github.com/imkishan96/Inverted_Pendulum/tree/master](https://github.com/imkishan96/Inverted_Pendulum/tree/master). Acesso em: 3 jun. 2025.
 
 UNIVERSITY OF MICHIGAN. **Control Tutorials for MATLAB and Simulink: Inverted Pendulum - System Modeling**. [S. l.], 2025. Disponível em: [http://ctms.engin.umich.edu/CTMS/index.php?example=InvertedPendulum§ion=SystemModeling](http://ctms.engin.umich.edu/CTMS/index.php?example=InvertedPendulum%C2%A7ion=SystemModeling). Acesso em: 3 jun. 2025.
+
+
+---
+
+### **Contato**
+
+* **LinkedIn:** [Ludmila Anjos](https://www.linkedin.com/in/ludmila-anjos-a08a73212)
+* **GitHub:** [lanjos1](https://github.com/lanjos1)
+* **E-mail:** ludmila.n.anjos@gmail.com
+
+---
+
+### Colaboradores
+
+O projeto contou com a colaboração de: Arthur Moreira, Bruno Álamo, Dante Cerqueira, Daphne Soares, Jonathan Sampaio, João Victor Freire, Pedro Braun Pires.
