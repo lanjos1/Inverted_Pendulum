@@ -32,13 +32,13 @@ A partir dos códigos de testes dos sensores [Ponte H BTS7960](Manual/Teste_Sens
 
 ### Imagens e Vídeo do Projeto
 
-![Pêndulo Invertido](Manual/media/Pendulo.png)
+![Pêndulo Invertido](https://raw.githubusercontent.com/lanjos1/Inverted_Pendulum/main/Manual/midia/Pendulo.png)
 
-![Imagem do Movimento](Manual/media/pendulo_movimento.png)
+![Imagem do Movimento](https://raw.githubusercontent.com/lanjos1/Inverted_Pendulum/main/Manual/midia/pendulo_movimento.png)
 
 <br/>
 
-<video src="Manual/media/pendulo_movimento.mp4" controls width="700">
+<video src="https://raw.githubusercontent.com/lanjos1/Inverted_Pendulum/main/Manual/midia/pendulo_movimento.mp4" controls width="700">
   Seu navegador não suporta o elemento de vídeo.
 </video>
 
